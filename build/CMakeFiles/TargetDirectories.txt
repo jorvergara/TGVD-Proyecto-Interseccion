@@ -1,0 +1,3 @@
+/home/jvergare/TGVD-Proyecto-Interseccion/build/CMakeFiles/octree_module.dir
+/home/jvergare/TGVD-Proyecto-Interseccion/build/CMakeFiles/edit_cache.dir
+/home/jvergare/TGVD-Proyecto-Interseccion/build/CMakeFiles/rebuild_cache.dir
