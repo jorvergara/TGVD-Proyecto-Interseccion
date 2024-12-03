@@ -63,7 +63,7 @@ class OctreeNode:
         self.triangles = []  # Lista de objetos Triangle
         self.depth = depth
         self.max_depth = max_depth
-        self.min_depth = min_depth
+    self.min_depth = min_depth
         self.epsilon = epsilon
         
     def insert_scene(self, scene):
@@ -112,42 +112,6 @@ class OctreeNode:
         variance = np.sum(np.linalg.norm(normals - avg_normal, axis=1) ** 2)
         
         return variance > self.epsilon
-    
-    def insert_triangle(self, triangle):
-        """
-        Inserta un triángulo en este nodo o en sus hijos.
-        :param triangle: Objeto de la clase Triangle.
-        """
-        # if self.depth >= self.max_depth:
-        #     self.triangles.append(triangle)
-        #     return
-        
-        p1 = len(self.triangles) == 0
-        p2 = self.depth >= self.max_depth 
-        p3 = self.depth >= self.min_depth and not self.calculate_normal_variance()
-        
-        # Si no tiene hijos, subdividir si excede el umbral
-        if p1 or p2 or p3:
-            pass
-        else:
-            self.subdivide()
-
-            # Redistribuir triángulos existentes
-            while self.triangles:
-                existing_triangle = self.triangles.pop()
-                for child in self.children:
-                    if is_triangle_in_bounds(existing_triangle.vertices, child.bounds):
-                        child.insert_triangle(existing_triangle)
-
-        # Si el nodo aún no tiene hijos
-        if not self.children:
-            self.triangles.append(triangle)
-            return
-
-        # Insertar en los hijos correspondientes
-        for child in self.children:
-            if is_triangle_in_bounds(triangle.vertices, child.bounds):
-                child.insert_triangle(triangle)
                 
     def recursive_subdivision(self):
         """

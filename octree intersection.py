@@ -9,7 +9,6 @@ import sys
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 #%%
-import intersection_utils as iu
 import subprocess as sp
 from time import time
 import numpy as np

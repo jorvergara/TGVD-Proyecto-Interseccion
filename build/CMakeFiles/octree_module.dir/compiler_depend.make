@@ -469,7 +469,8 @@ CMakeFiles/octree_module.dir/octree.cpp.o: ../octree.cpp \
   /usr/include/c++/11/bits/gslice_array.h \
   /usr/include/c++/11/bits/mask_array.h \
   /usr/include/c++/11/bits/indirect_array.h \
-  /usr/include/c++/11/variant
+  /usr/include/c++/11/variant \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/omp.h
 
 
 /usr/include/c++/11/bits/indirect_array.h:
@@ -919,6 +920,8 @@ CMakeFiles/octree_module.dir/octree.cpp.o: ../octree.cpp \
 /home/jvergare/anaconda3/envs/spyder-env/include/python3.9/bytearrayobject.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/omp.h:
 
 /usr/include/c++/11/bits/refwrap.h:
 

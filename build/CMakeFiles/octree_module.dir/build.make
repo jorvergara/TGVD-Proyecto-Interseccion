@@ -92,6 +92,8 @@ octree_module_EXTERNAL_OBJECTS =
 
 octree_module.cpython-39-x86_64-linux-gnu.so: CMakeFiles/octree_module.dir/octree.cpp.o
 octree_module.cpython-39-x86_64-linux-gnu.so: CMakeFiles/octree_module.dir/build.make
+octree_module.cpython-39-x86_64-linux-gnu.so: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+octree_module.cpython-39-x86_64-linux-gnu.so: /usr/lib/x86_64-linux-gnu/libpthread.a
 octree_module.cpython-39-x86_64-linux-gnu.so: CMakeFiles/octree_module.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jvergare/TGVD-Proyecto-Interseccion/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared module octree_module.cpython-39-x86_64-linux-gnu.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/octree_module.dir/link.txt --verbose=$(VERBOSE)

@@ -6,5 +6,5 @@ CXX_DEFINES = -Doctree_module_EXPORTS
 
 CXX_INCLUDES = -isystem /home/jvergare/anaconda3/envs/spyder-env/include -isystem /home/jvergare/anaconda3/envs/spyder-env/include/python3.9
 
-CXX_FLAGS = -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects
+CXX_FLAGS = -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -fopenmp
 

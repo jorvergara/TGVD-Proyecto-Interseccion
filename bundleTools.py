@@ -327,7 +327,7 @@ def read_mesh_obj( infile ):
                 ID = 'n'
                 
     vertex = N.asarray(vertex, dtype = N.float32)
-    polygons = N.asarray(polygons, dtype = N.int)
+    polygons = N.asarray(polygons, dtype = N.int32)
     
     return vertex, polygons
     
