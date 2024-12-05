@@ -101,12 +101,12 @@ private:
 
 class OctreeNode {
 public:
-    py::array_t<float> bounds;         // [xmin, ymin, zmin, xmax, ymax, zmax] (numpy array)
+    py::array_t<float> bounds;         // [xmin, ymin, zmin, xmax, ymax, zmax]
     std::vector<Triangle> triangles;   // Lista de objetos Triangle
     std::vector<OctreeNode> children;  // Hijos del nodo
     int depth;                         // Profundidad del nodo
     int max_depth;                     // Profundidad máxima
-    int min_depth;                     // Profundidad mínima antes de subdividir
+    int min_depth;                     // Profundidad mínima 
     float epsilon;                     // Tolerancia para subdivisión
 
     OctreeNode(py::array_t<float> bounds, int depth = 0, int min_depth = 5, int max_depth = 7, float epsilon = 0.01f)
@@ -740,6 +740,7 @@ PYBIND11_MODULE(octree_module, m) {
         .def_readonly("bounds", &OctreeNode::bounds)
         .def_readonly("triangles", &OctreeNode::triangles)
         .def_readonly("children", &OctreeNode::children)
+        .def_readonly("depth", &OctreeNode::depth)
         .def("calculate_normal_variance", &OctreeNode::calculate_normal_variance)
         .def("recursive_subdivision", &OctreeNode::recursive_subdivision)
         .def("redistribute_triangles", &OctreeNode::redistribute_triangles)
