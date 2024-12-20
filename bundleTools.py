@@ -389,20 +389,28 @@ def read_transformed_mesh_obj( infile ):
 
     return vertex, polygons
 
-def write_bundle( outfile, points ):
+def write_bundle(outfile, points):
+    # Abrir el archivo binario para escribir
+    with open(outfile + 'data', 'wb') as f:
+        ncount = len(points)
+        for i in range(ncount):
+            fibra = N.array(points[i])  # Asegurar que cada fibra sea un ndarray
+            f.write(N.array([len(fibra)], N.int32).tobytes())  # Longitud de la fibra
+            f.write(fibra.ravel().tobytes())  # Coordenadas de la fibra como bytes
 
-  #write bundles file
-  f = open( outfile + 'data','w' )
-  ncount = len( points )
-  for i in range( ncount ):
-    f.write(N.array( [ len( points[ i ] ) ], N.int32 ).tostring() )
-    f.write( points[ i ].ravel().tostring() )
+    # Crear el archivo de metadatos
+    minf = """attributes = {
+    'binary' : 1,
+    'bundles' : %s,
+    'byte_order' : 'DCBA',
+    'curves_count' : %s,
+    'data_file_name' : '*.bundlesdata',
+    'format' : 'bundles_1.0',
+    'space_dimension' : 3
+}"""
+    with open(outfile, 'w') as meta_file:
+        meta_file.write(minf % (['points', 0], ncount))
 
-  f.close()
-
-  # wrtie minf file
-  minf = """attributes = {\n    'binary' : 1,\n    'bundles' : %s,\n    'byte_order' : 'DCBA',\n    'curves_count' : %s,\n    'data_file_name' : '*.bundlesdata',\n    'format' : 'bundles_1.0',\n    'space_dimension' : 3\n  }"""
-  open( outfile, 'w' ).write(minf % ( [ 'points', 0 ], ncount ) )
 
 def write_bundle_severalbundles( outfile, points, bundles = [] ):
 
