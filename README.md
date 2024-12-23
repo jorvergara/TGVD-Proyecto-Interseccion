@@ -1,127 +1,136 @@
-# TGVD-Proyecto-Interseccion
-Proyecto Final para curso Tópicos en Manejos de Grandes Volúmenes de Datos. Este proyecto implementa un módulo en C++ con Python mediante `pybind11` que permite realizar consultas eficientes de intersección entre tractografía cerebral y mallas corticales. El código incluye algoritmos como el teorema del eje separador (SAT) y el algoritmo de Möller-Trumbore para intersección rayo-triángulo, utilizando una estructura Octree para mejorar la eficiencia.
+# TGVD-Proyecto-Intersección
 
-## Necesario
-1. Linux
-2. cmake (>= 3.11)
-3. g++ (>= 11.0)
-4. C++17
-5. pybind11
-6. OpenMP
+Proyecto Final para el curso **Tópicos en Manejo de Grandes Volúmenes de Datos**. Este proyecto implementa un módulo en C++ con Python mediante `pybind11` que permite realizar consultas eficientes de intersección entre tractografía cerebral y mallas corticales. Utiliza algoritmos como el **Teorema del Eje Separador (SAT)** y el **Algoritmo de Möller-Trumbore** para calcular intersecciones rayo-triángulo, optimizando la eficiencia mediante una estructura Octree.
 
-## Instructiones
-```bin/bash
-git clone https://github.com/jorvergara/TGVD-Proyecto-Interseccion.git
-cd TGVD-Proyecto-Interseccion
-chmod +x build.sh
-./build.sh
-./compile.sh
-./run.sh
-```
+## Requisitos Previos
 
-## Dependencias
+Para compilar y ejecutar este proyecto, asegúrate de contar con las siguientes herramientas instaladas:
 
-Antes de compilar e instalar este proyecto, asegúrese de tener las siguientes dependencias instaladas:
+1. **Sistema Operativo:** Linux
+2. **Compilador:**
+   - `cmake` (>= 3.11)
+   - `g++` (>= 11.0) con soporte para C++17
+3. **Librerías:**
+   - `pybind11`
+   - `OpenMP`
 
-1. Python 3.8 o superior
-2. pybind11
-3. OpenMP
-4. NumPy
-5. Matplotlib
-6. TQDM
-7. FURY
+Adicionalmente, es necesario un entorno de Python con las siguientes dependencias:
 
-### Instalación de dependencias
-Puede instalar las dependencias de Python mediante `pip`:
+- **Python:** 3.9 o superior
+- **Paquetes Python:** `pybind11`, `numpy`, `matplotlib`, `seaborn`, `nilearn`, `vtk`, `tqdm`, `fury`
+
+---
+
+## Instalación del Entorno
+
+Recomendamos crear un entorno virtual para una configuración limpia y reproducible.
+
+### Crear y Activar un Nuevo Entorno
+
+1. **Crear el entorno virtual `tgvd_env`:**
+   ```bash
+   python3.9 -m venv tgvd_env
+   ```
+
+2. **Activar el entorno:**
+   - **Linux/Mac:**
+     ```bash
+     source tgvd_env/bin/activate
+     ```
+   - **Windows:**
+     ```cmd
+     tgvd_env\Scripts\activate
+     ```
+
+3. **Actualizar `pip` y `setuptools`:**
+   ```bash
+   pip install --upgrade pip setuptools
+   ```
+
+### Instalar Dependencias
+
+Ejecuta el siguiente comando para instalar las dependencias de Python:
 
 ```bash
-pip install numpy matplotlib tqdm fury
+pip install pybind11 numpy matplotlib seaborn nilearn vtk tqdm fury
 ```
 
-Para pybind11 y OpenMP:
+Adicionalmente, instala `pybind11` y `OpenMP` en tu sistema:
 
-- En Ubuntu:
+- **Ubuntu:**
   ```bash
-  sudo apt install libomp-dev
-  sudo apt install pybind11-dev
+  sudo apt install libomp-dev pybind11-dev
   ```
 
+---
 
-## Compilación e Instalación
+## Descarga y Organización de los Datos
 
-1. **Configurar CMake**
-   En el directorio del proyecto, ejecute:
+### Descargar Datos
 
+Para ejecutar correctamente este proyecto, descarga los datos necesarios desde el siguiente enlace:
+
+[**Datos de Tractografía y Mallas Corticales**](https://drive.google.com/drive/folders/1rqpFk3GRi0x7Xu8bCJKDWgMd8aJXFWr_?usp=sharing)
+
+### Organización de Archivos
+
+Una vez descargados, organiza los datos de la siguiente forma en el directorio raíz del proyecto:
+
+```plaintext
+TGVD-Proyecto-Interseccion/
+├── meshes/                  # Mallas corticales (ya incluidas)
+├── tract/                   # Carpeta donde debes colocar los datos descargados
+    ├── 3Msift_t_MNI_21p.bundles
+    └── 3Msift_t_MNI_21p.bundlesdata
+```
+
+---
+
+## Instrucciones de Instalación y Ejecución
+
+1. **Clona el repositorio:**
    ```bash
-   mkdir build && cd build
-   cmake ..
-   make
+   git clone https://github.com/jorvergara/TGVD-Proyecto-Interseccion.git
+   cd TGVD-Proyecto-Interseccion
    ```
 
-2. **Generar el módulo**
-   Esto generará el archivo `octree_module.cpython*.so` en el directorio `build/`.
-
-3. **Pruebas**
-   Desde la carpeta base, ejecute:
-
+2. **Crea y compila el proyecto:**
    ```bash
-   python main.py
+   chmod +x build.sh
+   ./build.sh
+   ./compile.sh
    ```
 
-## Datos de Entrada
+3. **Ejecuta el proyecto:**
+   ```bash
+   ./run.sh
+   ```
 
-Los datos necesarios para este proyecto están organizados en las siguientes carpetas:
+---
 
-1. **Mallas Corticales:** Ubicadas en `meshes/`, contienen modelos 3D en formato `.obj`.
-2. **Tractografía Cerebral:** Ubicadas en `tract/`, contienen datos en formato `.bundles`.
+## Pruebas
 
-Los datos de tractografía utilizados están disponibles en el siguiente enlace:
-[Datos de Tractografía](https://drive.google.com/drive/folders/1rqpFk3GRi0x7Xu8bCJKDWgMd8aJXFWr_?usp=sharing)
-
-## Uso
-
-El script principal `main.py` permite realizar pruebas y evaluaciones utilizando las implementaciones disponibles. A continuación, se detalla un ejemplo de uso:
+Para realizar pruebas, ejecuta el archivo principal:
 
 ```bash
 python main.py
 ```
 
-### Flujo General del Script:
-1. Cargar las mallas corticales y tractografía.
-2. Construir el Octree y subdividir las mallas.
-3. Realizar consultas de intersección entre fibras y triángulos de la malla.
-4. Generar resultados y gráficas de rendimiento.
+El script principal incluye comparaciones entre la implementación de Octree y métodos tradicionales de cálculo de intersecciones.
 
-### Ejemplo de Configuración
-Modifique las rutas y parámetros en `main.py` para personalizar las pruebas:
-
-```python
-mesh_lh_path = 'meshes/lh.obj'
-bundles_path = 'tract/3Msift_t_MNI_21p.bundles'
-```
-
-## Resultados
-
-El proyecto genera varios resultados:
-
-1. **Tiempo de Construcción del Octree:**
-   - Comparación entre la subdivisión estándar y la basada en vértices.
-   - Guardado en `figures/octree_construction_time.png`.
-
-2. **Intersección entre Fibras y Mallas:**
-   - Resultados guardados en `results/`.
-
-3. **Métricas de Evaluación:**
-   - Recall y discrepancia entre diferentes métodos.
-
-4. **Gráficas de Desempeño:**
-   - Comparación del tiempo de ejecución entre Octree y métodos de fuerza bruta.
+---
 
 ## Referencias
 
-- "Real-Time Collision Detection", Christer Ericson.
+- **Real-Time Collision Detection**, Christer Ericson.
 - [Google Drive: Datos de Tractografía](https://drive.google.com/drive/folders/1rqpFk3GRi0x7Xu8bCJKDWgMd8aJXFWr_?usp=sharing)
 
 ---
-Cualquier consulta o problema, por favor contactar al desarrollador del proyecto.
 
+## Autor
+
+- Jorge Vergara
+
+--- 
+
+Este README ahora está mejor estructurado, incluye todas las instrucciones necesarias y es fácil de seguir.
