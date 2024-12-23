@@ -16,7 +16,6 @@ Este proyecto implementa un módulo en C++ con Python mediante `pybind11` que pe
 ## Estructura del Proyecto
 
 ```
-.
 ├── build/                    # Carpeta de compilación
 ├── figures/                  # Gráficas generadas
 ├── gt/                       # Datos ground truth

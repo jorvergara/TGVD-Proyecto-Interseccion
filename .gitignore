@@ -1,5 +1,4 @@
 # Ignorar carpetas específicas
-tract/
 test/
 *.bundles
 *.bundlesdata

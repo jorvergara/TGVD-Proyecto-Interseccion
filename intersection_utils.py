@@ -21,7 +21,7 @@ import pickle
 #arg3: Directorio de resultados
 #Return: Escribe datos de intersección en archivo binario .intersectiondata en el siguiente formato: InTri, FnTri, InPoints, FnPoints, fib_index, fiber_class
 def intersection(meshes_path, bundles_path, results_path):
-    print("Intersection...")
+    # print("Intersection...")
 
     t=time()
 
@@ -33,10 +33,10 @@ def intersection(meshes_path, bundles_path, results_path):
         os.makedirs(results_path)
 
     #sp.call(['intersection/make']);  #Compilación de códigos de intersección (tools.h, main.cpp, etc.)
-    print(['intersection/./interx', Lhemi_path, Rhemi_path, bundles_path, results_path])
+    # print(['intersection/./interx', Lhemi_path, Rhemi_path, bundles_path, results_path])
     sp.call(['intersection/./interx', Lhemi_path, Rhemi_path, bundles_path, results_path])
 
-    print('Tiempo: ' + str(time()-t)+'[s]' )
+    # print('Tiempo: ' + str(time()-t)+'[s]' )
 
 #Leer datos de intersección.
 #arg1: Archivo de intersección .intersectiondata

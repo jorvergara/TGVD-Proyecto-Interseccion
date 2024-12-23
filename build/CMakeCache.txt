@@ -240,9 +240,6 @@ PYTHON_EXECUTABLE:FILEPATH=/home/jvergare/anaconda3/envs/spyder-env/bin/python
 //Path to a library.
 PYTHON_LIBRARY:FILEPATH=/home/jvergare/anaconda3/envs/spyder-env/lib/libpython3.9.so
 
-//The directory containing a CMake configuration file for TBB.
-TBB_DIR:PATH=/home/jvergare/anaconda3/envs/spyder-env/lib/cmake/TBB
-
 //Value Computed by CMake
 octree_module_BINARY_DIR:STATIC=/home/jvergare/TGVD-Proyecto-Interseccion/build
 

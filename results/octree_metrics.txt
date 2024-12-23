@@ -1,0 +1,4 @@
+Recall (Octree SAT): 0.9988
+Recall (Octree Vertex): 0.8956
+Discrepancia (Octree SAT): 1
+Discrepancia (Octree Vertex): 86
