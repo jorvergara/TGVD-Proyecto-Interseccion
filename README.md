@@ -108,21 +108,9 @@ TGVD-Proyecto-Interseccion/
 
 ---
 
-## Pruebas
-
-Para realizar pruebas, ejecuta el archivo principal:
-
-```bash
-python main.py
-```
-
-El script principal incluye comparaciones entre la implementación de Octree y métodos tradicionales de cálculo de intersecciones.
-
----
-
 ## Referencias
 
-- **Real-Time Collision Detection**, Christer Ericson.
+- Wenshan Fan, Bin Wang, Jean-Claude Paul, Jiaguang Sun. "An Octree-based proxy for collision detection in large-scale particle systems". *Science in China Series F: Information Sciences*, 2013, 56(1), pp.1-10. DOI: [10.1007/s11432-012-4616-5](https://doi.org/10.1007/s11432-012-4616-5).
 - [Google Drive: Datos de Tractografía](https://drive.google.com/drive/folders/1rqpFk3GRi0x7Xu8bCJKDWgMd8aJXFWr_?usp=sharing)
 
 ---
@@ -130,7 +118,3 @@ El script principal incluye comparaciones entre la implementación de Octree y m
 ## Autor
 
 - Jorge Vergara
-
---- 
-
-Este README ahora está mejor estructurado, incluye todas las instrucciones necesarias y es fácil de seguir.
