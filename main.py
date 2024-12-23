@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import intersection_utils as iu
 import octree_module
 
-import subprocess as sp
 import numpy as np
 import bundleTools as BT
 import bundleTools3 as BT3
@@ -178,7 +177,7 @@ def evaluate_algorithms(N, bundle, vertex_lh, polygons_lh, bounds, octree):
 
 
 def main():
-    # evaluate_octree_performance()
+    evaluate_octree_performance()
 
     # Configurar entorno
     N = [50, 100, 200, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000]
