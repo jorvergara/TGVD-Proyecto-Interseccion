@@ -1,37 +1,22 @@
 # TGVD-Proyecto-Interseccion
+Proyecto Final para curso Tópicos en Manejos de Grandes Volúmenes de Datos. Este proyecto implementa un módulo en C++ con Python mediante `pybind11` que permite realizar consultas eficientes de intersección entre tractografía cerebral y mallas corticales. El código incluye algoritmos como el teorema del eje separador (SAT) y el algoritmo de Möller-Trumbore para intersección rayo-triángulo, utilizando una estructura Octree para mejorar la eficiencia.
 
+## Necesario
+1. Linux
+2. cmake (>= 3.11)
+3. g++ (>= 11.0)
+4. C++17
+5. pybind11
+6. OpenMP
 
-Este proyecto implementa un módulo en C++ con Python mediante `pybind11` que permite realizar consultas eficientes de intersección entre tractografía cerebral y mallas corticales. El código incluye algoritmos como el teorema del eje separador (SAT) y el algoritmo de Möller-Trumbore para intersección rayo-triángulo, utilizando una estructura Octree para mejorar la eficiencia.
-
-## Contenido
-
-1. [Estructura del Proyecto](#estructura-del-proyecto)
-2. [Dependencias](#dependencias)
-3. [Compilación e Instalación](#compilación-e-instalación)
-4. [Datos de Entrada](#datos-de-entrada)
-5. [Uso](#uso)
-6. [Resultados](#resultados)
-7. [Referencias](#referencias)
-
-## Estructura del Proyecto
-
-```
-├── build/                    # Carpeta de compilación
-├── figures/                  # Gráficas generadas
-├── gt/                       # Datos ground truth
-├── intersection/             # Datos de intersección generados
-├── meshes/                   # Mallas corticales
-├── results/                  # Resultados generados
-├── test/                     # Subconjuntos de tractografía
-├── tract/                    # Datos de tractografía
-├── bundleTools.py            # Utilidades para manejo de tractografía
-├── bundleTools3.py           # Segunda versión de las utilidades
-├── intersection_utils.py     # Funciones de intersección
-├── main.py                   # Script principal
-├── octree.cpp                # Implementación del Octree
-├── queries.py                # Consultas relacionadas con intersección
-├── CMakeLists.txt            # Configuración de compilación con CMake
-└── README.md                 # Documentación del proyecto
+## Instructiones
+```bin/bash
+git clone https://github.com/jorvergara/TGVD-Proyecto-Interseccion.git
+cd TGVD-Proyecto-Interseccion
+chmod +x build.sh
+./build.sh
+./compile.sh
+./run.sh
 ```
 
 ## Dependencias
@@ -61,7 +46,6 @@ Para pybind11 y OpenMP:
   sudo apt install pybind11-dev
   ```
 
-- En Windows, instale `pybind11` desde el gestor de paquetes de su compilador.
 
 ## Compilación e Instalación
 
